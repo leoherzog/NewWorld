@@ -18,6 +18,20 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="bootstrap.min.js"></script>
         
+        <script src="https://mcapi.us/scripts/minecraft.js"></script>
+        <script>
+          MinecraftAPI.getServerStatus('play.awholenew.world', {
+            port: 25565
+          }, function (err, status) {
+            if (err) {
+              return document.querySelector('.server-status').innerHTML = '<span class="text-muted">unknown</span>';
+            }
+        
+            // you can change these to your own message!
+            document.querySelector('.server-online').innerHTML = status.online ? '<span class="text-success">online</span>' : '<span class="text-danger">offline</span>';
+          });
+        </script>
+        
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -87,6 +101,9 @@
         <section id="background" class="text-center" style="padding-bottom: 240px;">
             <h1 class="animated rotateInDownLeft"><img src="img/logo.png" width="80%" /></h1>
             <h2 class="animated rotateInDownRight">A Minecraft Server</h2>
+            <div class="server-status">
+                <h2>The server is currently <span class="server-online"></span>!</h2>
+            </div>
             
             <div class="container" style="padding-top: 240px;">
                 <div class="page-header">
