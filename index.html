@@ -26,8 +26,6 @@
             if (err) {
               return document.querySelector('.server-status').innerHTML = '<span class="text-muted">unknown</span>';
             }
-        
-            // you can change these to your own message!
             document.querySelector('.server-online').innerHTML = status.online ? '<span class="text-success">online</span>' : '<span class="text-danger">offline</span>';
           });
         </script>
